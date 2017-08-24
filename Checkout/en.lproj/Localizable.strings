@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  Checkout
+
+  Created by Chaitanya Pandit on 24/08/17.
+  Copyright © 2017 Chaitanya Pandit. All rights reserved.
+*/
+
+
+// Checkout Screen
+"checkout:title" = "Checkout";
+"checkout:subtitle" = "Your coverage begins immediately";
+"checkout:add-payment-method" = "Add Payment Method";
+"checkout:selected-card-format" = "%@ **** **** **** %@";
+"checkout:order-summary" = "Order Summary";
+"checkout:total" = "TOTAL";
+"checkout:terms-conditions" = "By tapping “Confirm Subscription”, you agree to App's privacy notice, conditions of use, and subscription terms. If we are unable to complete your order with the payment method associated with your subscription you will be given notice of cancellation effective immediately.";
+"checkout:terms-button-title" = "I agree with the terms and conditions of service";
+"checkout:checkout-button-title" = "Cash me outside";
+"checkout:tax-fees" = "Tax & Fees";
+"checkout:discount" = "Discount";
+
+// Payment Method screen
+"payment:cell-card-name" = "%@ Ending in %@";
+"payment:cell-new-card" = "Add New Card...";
+
+// Payment Success screen
+"success:title" = "Your car is covered!";
+"success:message" = "Something about easy claims and we're here for you whatever whatever, yay!";
+"success:done-button-title" = "How bow dah!";

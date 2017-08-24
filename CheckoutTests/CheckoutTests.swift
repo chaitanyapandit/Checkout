@@ -13,24 +13,33 @@ class CheckoutTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    // Test to verify an order total which has no tax but has discount
+    func testOrderNoTax() {
+        let order = Order(currency:"$", items:[OrderItem(title: "Yearly Protection Plan", value: 72.99)], tax: 0.0, discount:5.0)
+        XCTAssertEqual(order.grandTotal(), Float(67.99), "Test Failed for order with no tax")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    // Test to verify an order total which has no discount but has tax
+    func testOrderNoDiscount() {
+        let order = Order(currency:"$", items:[OrderItem(title: "Yearly Protection Plan", value: 50.0)], tax: 10.0, discount:0.0)
+        XCTAssertEqual(order.grandTotal(), Float(55.0), "Test Failed for order with no discount")
     }
     
+    // Test to verify an order total which has no discount and no tax
+    func testOrderNoTaxNoDiscount() {
+        let order = Order(currency:"$", items:[OrderItem(title: "Yearly Protection Plan", value: 50.0)], tax: 0.0, discount:0.0)
+        XCTAssertEqual(order.grandTotal(), Float(50.0), "Test Failed for order with no tax and discount")
+    }
+    
+    // Test to verify an order total which has both discount and tax
+    func testOrderTaxAndDiscount() {
+        let order = Order(currency:"$", items:[OrderItem(title: "Yearly Protection Plan", value: 50.0)], tax: 10.0, discount:5.0)
+        XCTAssertEqual(order.grandTotal(), Float(49.5), "Test Failed for order with tax and discount")
+    }
 }
